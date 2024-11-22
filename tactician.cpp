@@ -1,26 +1,75 @@
-#include<iostream>
-#include<stdio.h>
-#include<stdlib.h>
-#include<cstdlib>
-#include<time.h>
-#include<chrono>
-#include<ctime>
-#include<cmath>
+#include "tactician.h"
+#include <iostream>
 
-using namespace std;
+Tactician::Tactician(std::string tactician_name, int gold_spent, int level, int xp) : 
+    tacticianName(tactician_name), goldSpent(gold_spent), playerLevel(level),  playerXP(xp) {}
 
-int gold;
-bool rollingOver = false;
-int level = 2;
-int levelxp = 0;
+std::string Tactician::get_tacticianName() const {
 
-void Shop() {            // Create new file for Shop(), make work space cleaner
-    int slot1 = 1;
-    int slot2 = 1;
-    int slot3 = 1;
-    int slot4 = 1;
-    int slot5 = 1;
+    return tacticianName;
 
+}
+
+int Tactician::get_goldSpent() const {
+
+    return goldSpent;
+
+}
+
+int Tactician::get_level() const {
+
+    return playerLevel;
+
+}
+
+int Tactician::get_playerXP() const {
+
+    return playerXP;
+}
+
+void Tactician::LevelUp() {
+    if (playerXP >= 278) {
+        std::cout << "You are already at the Max Level (10)" << '\n';
+    }
+    else {
+            goldSpent += 4;
+            if (playerXP >= 278) {
+                playerLevel = 10;
+                std::cout << "You are level " << playerLevel << '\n';
+            }
+            else if (playerXP >= 194) {
+                playerLevel = 9;
+                std::cout << "You are level " << playerLevel << '\n';
+            }
+            else if (playerXP >= 122) {
+                playerLevel = 8;
+                std::cout << "You are level " << playerLevel << '\n';
+            }
+            else if (playerXP >= 74) {
+                playerLevel = 7;
+                std::cout << "You are level " << playerLevel << '\n';
+            }
+            else if (playerXP >= 38) {
+                playerLevel = 6;
+                std::cout << "You are level " << playerLevel << '\n';
+            }
+            else if (playerXP >= 18) {
+                playerLevel = 5;
+                std::cout << "You are level " << playerLevel << '\n';
+            }
+            else if (playerXP >= 8) {
+                playerLevel = 4;
+                std::cout << "You are level " << playerLevel << '\n';
+            }
+            else if (playerXP >= 2) {
+                playerLevel = 3;
+                std::cout << "You are level " << playerLevel << '\n';
+            }
+    }
+}
+
+void Tactician::Shop(int level) {
+    int slot1 = 1; int slot2 = 1; int slot3 = 1; int slot4 = 1; int slot5 = 1;
     int random_num1 = rand() % 100 + 1;
     int random_num2 = rand() % 100 + 1;
     int random_num3 = rand() % 100 + 1;
@@ -28,9 +77,9 @@ void Shop() {            // Create new file for Shop(), make work space cleaner
     int random_num5 = rand() % 100 + 1;
 
     if (level == 2){
-        cout << " - - - - - " << "\n";
-        cout << "|" << slot1 << "|" << slot2 << "|" << slot3 << "|" << slot4 << "|" << slot5 << "|" << "\n";
-        cout << " - - - - - " << "\n";
+        std::cout << " - - - - - " << "\n";
+        std::cout << "|" << slot1 << "|" << slot2 << "|" << slot3 << "|" << slot4 << "|" << slot5 << "|" << "\n";
+        std::cout << " - - - - - " << "\n";
     }
     else if (level == 3){
         if (random_num1 <= 25) {
@@ -48,9 +97,9 @@ void Shop() {            // Create new file for Shop(), make work space cleaner
         if (random_num5 <= 25) {
             slot5 = 2;
         }
-        cout << " - - - - - " << "\n";
-        cout << "|" << slot1 << "|" << slot2 << "|" << slot3 << "|" << slot4 << "|" << slot5 << "|" << "\n";
-        cout << " - - - - - " << "\n";
+        std::cout << " - - - - - " << "\n";
+        std::cout << "|" << slot1 << "|" << slot2 << "|" << slot3 << "|" << slot4 << "|" << slot5 << "|" << "\n";
+        std::cout << " - - - - - " << "\n";
     }
     else if (level == 4){
         if (random_num1 <= 15) {
@@ -83,9 +132,9 @@ void Shop() {            // Create new file for Shop(), make work space cleaner
         else if (random_num5 > 15 && random_num5 <= 45) {
             slot5 = 2;
         }
-        cout << " - - - - - " << "\n";
-        cout << "|" << slot1 << "|" << slot2 << "|" << slot3 << "|" << slot4 << "|" << slot5 << "|" << "\n";
-        cout << " - - - - - " << "\n";
+        std::cout << " - - - - - " << "\n";
+        std::cout << "|" << slot1 << "|" << slot2 << "|" << slot3 << "|" << slot4 << "|" << slot5 << "|" << "\n";
+        std::cout << " - - - - - " << "\n";
     }
     else if (level == 5) {
         if (random_num1 <= 2) {
@@ -133,9 +182,9 @@ void Shop() {            // Create new file for Shop(), make work space cleaner
         else if (random_num5 > 22 && random_num5 <= 55) {
             slot5 = 2;
         }
-        cout << " - - - - - " << "\n";
-        cout << "|" << slot1 << "|" << slot2 << "|" << slot3 << "|" << slot4 << "|" << slot5 << "|" << "\n";
-        cout << " - - - - - " << "\n";
+        std::cout << " - - - - - " << "\n";
+        std::cout << "|" << slot1 << "|" << slot2 << "|" << slot3 << "|" << slot4 << "|" << slot5 << "|" << "\n";
+        std::cout << " - - - - - " << "\n";
     }
     else if (level == 6) {
         if (random_num1 <= 5) {
@@ -183,9 +232,9 @@ void Shop() {            // Create new file for Shop(), make work space cleaner
         else if (random_num5 > 30 && random_num5 <= 70) {
             slot5 = 2;
         }
-        cout << " - - - - - " << "\n";
-        cout << "|" << slot1 << "|" << slot2 << "|" << slot3 << "|" << slot4 << "|" << slot5 << "|" << "\n";
-        cout << " - - - - - " << "\n";
+        std::cout << " - - - - - " << "\n";
+        std::cout << "|" << slot1 << "|" << slot2 << "|" << slot3 << "|" << slot4 << "|" << slot5 << "|" << "\n";
+        std::cout << " - - - - - " << "\n";
         
     }
     else if (level == 7) {
@@ -249,9 +298,9 @@ void Shop() {            // Create new file for Shop(), make work space cleaner
         else if (random_num5 > 51 && random_num5 <= 81) {
             slot5 = 2;
         }
-        cout << " - - - - - " << "\n";
-        cout << "|" << slot1 << "|" << slot2 << "|" << slot3 << "|" << slot4 << "|" << slot5 << "|" << "\n";
-        cout << " - - - - - " << "\n";
+        std::cout << " - - - - - " << "\n";
+        std::cout << "|" << slot1 << "|" << slot2 << "|" << slot3 << "|" << slot4 << "|" << slot5 << "|" << "\n";
+        std::cout << " - - - - - " << "\n";
     }
     else if (level == 8) {
         if (random_num1 <= 3) {
@@ -314,9 +363,9 @@ void Shop() {            // Create new file for Shop(), make work space cleaner
         else if (random_num5 > 57 && random_num5 <= 82) {
             slot5 = 2;
         }
-        cout << " - - - - - " << "\n";
-        cout << "|" << slot1 << "|" << slot2 << "|" << slot3 << "|" << slot4 << "|" << slot5 << "|" << "\n";
-        cout << " - - - - - " << "\n";
+        std::cout << " - - - - - " << "\n";
+        std::cout << "|" << slot1 << "|" << slot2 << "|" << slot3 << "|" << slot4 << "|" << slot5 << "|" << "\n";
+        std::cout << " - - - - - " << "\n";
     }
     else if (level == 9) {
         if (random_num1 <= 10) {
@@ -379,9 +428,9 @@ void Shop() {            // Create new file for Shop(), make work space cleaner
         else if (random_num5 > 65 && random_num5 <= 85) {
             slot5 = 2;
         }
-        cout << " - - - - - " << "\n";
-        cout << "|" << slot1 << "|" << slot2 << "|" << slot3 << "|" << slot4 << "|" << slot5 << "|" << "\n";
-        cout << " - - - - - " << "\n";
+        std::cout << " - - - - - " << "\n";
+        std::cout << "|" << slot1 << "|" << slot2 << "|" << slot3 << "|" << slot4 << "|" << slot5 << "|" << "\n";
+        std::cout << " - - - - - " << "\n";
     }
     else if (level == 10) {
         if (random_num1 <= 25) {
@@ -444,74 +493,8 @@ void Shop() {            // Create new file for Shop(), make work space cleaner
         else if (random_num5 > 85 && random_num5 <= 95) {
             slot5 = 2;
         }
-        cout << " - - - - - " << "\n";
-        cout << "|" << slot1 << "|" << slot2 << "|" << slot3 << "|" << slot4 << "|" << slot5 << "|" << "\n";
-        cout << " - - - - - " << "\n";
+        std::cout << " - - - - - " << "\n";
+        std::cout << "|" << slot1 << "|" << slot2 << "|" << slot3 << "|" << slot4 << "|" << slot5 << "|" << "\n";
+        std::cout << " - - - - - " << "\n";
     }
-
-}
-
-void Rolling() {
-    cout << "Please type B to reroll\n";
-    cout << "Please type L to level up\n";
-    while (gold > 1) {
-        int input = getchar();
-        if (input == 'B' || input == 'b') {                            // -2 gold for each time B is pressed
-            gold -= 2;
-            Shop();
-            cout << "You have " << gold << " gold left\n";
-        }
-        else if(input == 'L' || input == 'l') {
-            gold -= 4;
-            levelxp += 4;
-            cout << "You have " << gold << " gold left\n";
-            if (levelxp >= 278) {
-                level = 10;
-                cout << "You are level " << level << endl;
-            }
-            else if (levelxp >= 194) {
-                level = 9;
-                cout << "You are level " << level << endl;
-            }
-            else if (levelxp >= 122) {
-                level = 8;
-                cout << "You are level " << level << endl;
-            }
-            else if (levelxp >= 74) {
-                level = 7;
-                cout << "You are level " << level << endl;
-            }
-            else if (levelxp >= 38) {
-                level = 6;
-                cout << "You are level " << level << endl;
-            }
-            else if (levelxp >= 18) {
-                level = 5;
-                cout << "You are level " << level << endl;
-            }
-            else if (levelxp >= 8) {
-                level = 4;
-                cout << "You are level " << level << endl;
-            }
-            else if (levelxp >= 2) {
-                level = 3;
-                cout << "You are level " << level << endl;
-            }
-        }
-    rollingOver = true;
-    }
-}
-
-int main() {
-
-    while (!rollingOver) {
-        cout << "Please enter amount of Gold you would like: ";
-        while (!(std::cin >> gold)) {                                   // if input is not an integer
-            cout << "\nPlease enter an integer: ";
-            cin.clear();                                                // clear input
-            cin.ignore(123, '\n');
-        }
-        Rolling();
-    };
-    return 0;
 }
